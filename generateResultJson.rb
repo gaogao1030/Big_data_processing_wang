@@ -16,4 +16,5 @@ end
 open("result.json",'a') do |file|
   file.puts data.to_json
 end
+
 puts "generate done"

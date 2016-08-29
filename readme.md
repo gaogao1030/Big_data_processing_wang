@@ -12,7 +12,11 @@
 
   ruby importRedis.rb
 
+  #generate result.json
   ruby generateResultJson.rb
+
+  #generate result.csv
+  ruby generateCSV.rb
 
 # CleanRedis
   ruby cleanRedis.rb

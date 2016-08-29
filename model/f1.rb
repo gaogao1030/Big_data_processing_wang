@@ -23,7 +23,7 @@ class F1 < RedisOrm::Base
   def self.calculate
     bar = ProgressBar.new(self.count)
     self.get_cross_types.each do |type|
-      records = self.all(condition: {cross: type})
+      records = self.find_all_by_cross(type)
       sum_of_pa_and_pb = 0.00000000
       sum_of_heterosis = 0.00000000
       records.each do |record|
@@ -50,7 +50,7 @@ class F1 < RedisOrm::Base
   end
 
   def self.import_redis_from_csv
-    csv_records = SmarterCSV.process("./data/sample.csv")
+    csv_records = SmarterCSV.process("./data/f1.csv")
     puts "csv_records loaded"
     bar = ProgressBar.new(csv_records.count)
     csv_records.each do |record|
